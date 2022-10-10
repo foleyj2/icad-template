@@ -1,22 +1,22 @@
-%%%%%%%%%%%%%%%%%%%%%%% file template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
-% $Id: icad-example.tex 163 2017-05-15 23:02:51Z foley $
-% $URL: https://repository.cs.ru.is/svn/template/tvd/journal/matec-woc/icad-example.tex $
+%%%%%%%%%%%%%%%%%%%%%%% file icad-template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+% $Id: icad-template.tex 196 2020-03-20 12:09:24Z foley $
+% $URL: https://repository.cs.ru.is/svn/template/tvd/journal/journal-of-physics/icad-template.tex $
 % 
-% This is a template file for Web of Conferences Journal
+% This is a template file for Journal of Physics Conference Series
+%   which is used for the International Conference of Axiomatic Design as of 2020
 %
-% Copy it to a new file with a new name and use it as the basis
-% for your article
-%
-% This template has been updated to match the Word Template's contents
-% by Joseph T. Foley < foley AT RU dot IS >
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%% EDP Science %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%%%\documentclass[option]{webofc}
-%%% "twocolumn" for typesetting an article in two columns format (default one column)
-%
-\documentclass[twocolumn]{webofc}
-\usepackage[varg]{txfonts}   % Web of Conferences font
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper]{jpconf}
+%% Allow Icelandic characters
+\usepackage[icelandic,english]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\graphicspath{{./}{Graphics/}}
+
+\bibliographystyle{iopart-num}
+%\usepackage{citesort}
+
 \usepackage{booktabs}
 \usepackage{array} %% needed for advanced table manipulation
 %% Column types from http://tex.stackexchange.com/questions/54069/table-with-text-wrapping
@@ -24,77 +24,55 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\graphicspath{{graphics/}{Graphics/}}  % where to look for graphics
-%
-% Put packages and macros that you use often in custom.sty
 \usepackage{custom}
-
-%% Fixmes are reminders of things that still need to be done.
-%% The default fixmes are:  \fxnote{} \fxwarning{} \fxerror{} \fxfatal{} (same as \fixme{})
-% if you want personalized fixmes, then register the authors here
-% notice that the first field is 2 letters, the second is 3.
-\FXRegisterAuthor{jf}{jtf}{foley}
-% this registers \jfnote{}, \jfwarning{}, \jferror{}, \jffatal{}
-
+\usepackage{url}%%URL should also be the last package loaded along with hyperref if needed
 \begin{document}
-        %
-        \title{International Conference of Axiomatic Design 2020 Template: MATEC Web of Conferences}
-        %
-        % subtitle is optionnal
-        %
-        %%%\subtitle{Do you have a subtitle?\\ If so, write it here}
+\title{International Conference of Axiomatic Design 2020+ Template: \jpcs}
 
-        \author{\firstname{Joseph  T.} \lastname{Foley}\inst{1}\fnsep\thanks{\email{foley AT ru.is}} 
-        \and
-  \firstname{Miguel} \lastname{Cavique}\inst{2}
-  % etc.
-}
+\author{J T Foley$^{1,2}$, M J P S Cavique$^{3}$, A J F Mourão$^{4}$, J M Fradinho$^{4}$}
 
-\institute{
-  Reykjavik University, Menntavegur 1, Reykjavik 101, Iceland
-  \and
-  Naval Academy, Base Naval -- Alfeite, Almada, 2810--001, Portugal
-}
+\address{$^{1}$Reykjavik University, Menntavegur 1, Reykjavik 102, Iceland}
+\address{$^{2}$Massachusetts Institute of Technology, 77 Massachusetts Ave, Cambridge MA 02139, USA}
+\address{$^{3}$Naval Academy (PT), Department of Sciences and Technology, Base Naval --- Alfeite, Almada, 2810-001, Portugal}
+\address{$^{4}$Faculdade de Ci\^{e}ncias e Technologia, Universidade Nova De Lisboa, 2829-516 Caparica, Portugal}
+\ead{foley AT ru.is}
 
-\abstract{%
-    Everyone who has written a conference paper as part of a team knows the challenges of integrating it all together while following the conference template appropriately.
-    Axiomatic Design indicates that the design of a suitable process requires it to be modular and robust, which are not the case with the commonly used solution of WYSIWYG word processors such as Microsoft Word.
-    In this paper, we compare an alternative system called LaTeX in the context of modularity and robustness in comparison to Microsoft Word due to the structure of document creation.
-    LaTeX gives the option to break a document into separate pieces including at-compile figures, tables, and additional material.
-    LaTeX is also a more robust data format as is proven by selectively corrupting a set of input files until they no longer compile.
-    Through the lens of Axiomatic Design, markup languages such as LaTeX are much more robust and modular than current WYSIWYG document editors used in the conference paper development. 
-}
-%
-\maketitle
-%
-\section*{README!}\label{sec:readme}
+\begin{abstract}
+  All articles {\it must} contain an abstract.
+This document describes the preparation of a conference paper to be published in \jpcs\ using \LaTeXe\ and the \cls\ class file.
+The abstract follows the addresses and should give readers concise information about the content of the article and indicate the main results obtained and conclusions drawn.
+As the abstract is not part of the text it should be complete in itself; no table numbers, figure numbers, references or displayed mathematical expressions should be included.
+It should be suitable for direct inclusion in abstracting services and should not normally exceed 200 words.
+The abstract should generally be restricted to a single paragraph.
+Since contemporary information-retrieval systems rely heavily on the content of titles and abstracts to identify relevant articles in literature searches, great care should be taken in constructing both.
+\end{abstract}
+
+\section*{Important Information}
+This ICAD template is a customized version from the one provided by Jacky Mucklow \texttt{jacky.mucklow@iop.org} for \jpcs.
+The original template and more information can be found at \url{https://publishingsupport.iopscience.iop.org/author-guidelines-for-conference-proceedings/}
+
+IOP Publishing is to grateful Mark A Caprio, Center for Theoretical Physics, Yale University, for permission to include the {\tt iopart-num} \BibTeX package (version 2.0, December 21, 2006) with  this documentation. Updates and new releases of {\tt iopart-num} can be found on \verb"www.ctan.org" (CTAN). 
+
 \textbf{Template Author's Notes (2019--02--11):}
   This version of the template has descriptive sections and examples for an Axiomatic Design/Product Design paper.
-  If you are looking for the original MATEC LaTeX template, it can be found in \path{woc_2col.tex}.
+  If you are looking for the original MATEC LaTeX template, it can be found in \path{Instructions/JPSCLaTeXGuidelines.tex}; a PDF of the same name can be found with this file.
   The original template has a lot of detailed instructions on formatting the paper, but most of that is already taken care of if you are using LaTeX.
 
   This template takes care of formatting and placement of the citations, as long as you fill in the BibTeX file \path{references.bib} and \path{references-ad.bib} correctly.
   If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file.
 
-        If you have \path{woc.bst} it will ensure that the citations meet the formatting required by MATEC Web of Science with some modifications needed for the International Conference on Axiomatic Design.
-        If you need the old citation format, just copy \path{woc-orig.bst} over the \path{woc.bst}.
-        Enjoy!
-
-
-\listoffixmes{}
-
-\section*{\LaTeX{} Hints}
+\subsection*{\LaTeX{} Hints}
 \begin{itemize}
 \item Put one sentence per line.
   This makes it easier to debug errors (which are by line) and to do grammar checking with \url{http://grammarly.com}.
 \item Compile the document often and look for errors.
   If you find one, try commenting out the area to locate the source of the problem.
 \item Watch out for \& and \%.  They have to have a left-slash in front of them.
+\item Underscore ``\verb|_|''is only usable in math as a subscript.
+  Don't put it in normal text.
 \end{itemize}
 
 \section{Introduction}
-\jfnote{Don't forget to write the introduction.}
-\jfwarning{Really, don't forget to write the introduction.}
 What is the idea?  What is it called and why?
 Who is the target customer?
 
@@ -207,27 +185,14 @@ This matrix is de-coupled i.e.\ path-dependent, meaning it can be optimized, but
 
 \subsection{Summary}
 
-%\bibliography{references}
-\bibliography{references-ad}
+\section*{References}
+\bibliography{iopart-num-demo,references,references-ad}
 
 \end{document}
-%%%%%%%%%%%%%%%%%%%% TeXStudio Magic Comments %%%%%%%%%%%%%%%%%%%%%
-%% These comments that start with "!TeX" modify the way TeXStudio works
-%% For details see http://texstudio.sourceforge.net/manual/current/usermanual_en.html   Section 4.10
-%%
-%% What encoding is the file in?
-% !TeX encoding = UTF-8
-%% What language should it be spellchecked?
-% !TeX spellcheck = en_US
-%% What program should I compile this document with?
-% !TeX program = pdflatex
-%% Which program should be used for generating the bibliography?
-% !TeX TXS-program:bibliography = txs:///bibtex
-%% This also sets the bibliography program for TeXShop and TeXWorks
-% !BIB program = bibtex
+
+
 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
 %%% End:
-
