@@ -16,7 +16,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -77,11 +76,11 @@
 ## About The Project
 After maintaining the LaTeX templates for the International Conference on Axiomatic design in various repositories, I decided to unify them in one place using Git-style annotation to keep them separate.
 
-These templates are in various branches off the main branch
+These templates are in various tags/branches off the main branch
 * 2022 at [Springer Lecture Notes in Networks and Systems](https://www.springer.com/series/15179)
-* 2021 at [IOP Conference Series: Materials Science and Engineering](https://iopscience.iop.org/issue/1757-899X/1174/1)
-* 2018 - 2019 at [MATEC Web of Science](https://www.matec-conferences.org/icad) Branch: matec-woc
-* 2015 - 2016 at [Procedia CIRP](https://www.sciencedirect.com/journal/procedia-cirp)
+* 2021 at [IOP Conference Series: Materials Science and Engineering](https://iopscience.iop.org/issue/1757-899X/1174/1)  **Branch: iot-science-journal-of-physics, Tag:  v3.0**
+* 2018 - 2019 at [MATEC Web of Science](https://www.matec-conferences.org/icad) **Branch: matec-woc, Tag:  v2.0**
+* 2015 - 2016 at [Procedia CIRP](https://www.sciencedirect.com/journal/procedia-cirp) **Branch: procedia-cirp, Tag:  v1.0**
 * 2000 - 2014 at [AxiomaticDesign.Com](https://www.axiomaticdesign.com/technology/publications/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
