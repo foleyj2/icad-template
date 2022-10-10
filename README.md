@@ -24,7 +24,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/foleyj2/icad-template">
-    <img src="Graphics/ad-domains.png" alt="Logo" width="200" height="80">
+    <img src="Graphics/ad-domains.png" alt="Logo" width="400">
   </a>
 
 <h3 align="center">International Conference of Axiomatic Design templates</h3>
