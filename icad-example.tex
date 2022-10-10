@@ -1,0 +1,233 @@
+%%%%%%%%%%%%%%%%%%%%%%% file template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+% $Id: icad-example.tex 163 2017-05-15 23:02:51Z foley $
+% $URL: https://repository.cs.ru.is/svn/template/tvd/journal/matec-woc/icad-example.tex $
+% 
+% This is a template file for Web of Conferences Journal
+%
+% Copy it to a new file with a new name and use it as the basis
+% for your article
+%
+% This template has been updated to match the Word Template's contents
+% by Joseph T. Foley < foley AT RU dot IS >
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%% EDP Science %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%\documentclass[option]{webofc}
+%%% "twocolumn" for typesetting an article in two columns format (default one column)
+%
+\documentclass[twocolumn]{webofc}
+\usepackage[varg]{txfonts}   % Web of Conferences font
+\usepackage{booktabs}
+\usepackage{array} %% needed for advanced table manipulation
+%% Column types from http://tex.stackexchange.com/questions/54069/table-with-text-wrapping
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\graphicspath{{graphics/}{Graphics/}}  % where to look for graphics
+%
+% Put packages and macros that you use often in custom.sty
+\usepackage{custom}
+
+%% Fixmes are reminders of things that still need to be done.
+%% The default fixmes are:  \fxnote{} \fxwarning{} \fxerror{} \fxfatal{} (same as \fixme{})
+% if you want personalized fixmes, then register the authors here
+% notice that the first field is 2 letters, the second is 3.
+\FXRegisterAuthor{jf}{jtf}{foley}
+% this registers \jfnote{}, \jfwarning{}, \jferror{}, \jffatal{}
+
+\begin{document}
+        %
+        \title{International Conference of Axiomatic Design 2020 Template: MATEC Web of Conferences}
+        %
+        % subtitle is optionnal
+        %
+        %%%\subtitle{Do you have a subtitle?\\ If so, write it here}
+
+        \author{\firstname{Joseph  T.} \lastname{Foley}\inst{1}\fnsep\thanks{\email{foley AT ru.is}} 
+        \and
+  \firstname{Miguel} \lastname{Cavique}\inst{2}
+  % etc.
+}
+
+\institute{
+  Reykjavik University, Menntavegur 1, Reykjavik 101, Iceland
+  \and
+  Naval Academy, Base Naval -- Alfeite, Almada, 2810--001, Portugal
+}
+
+\abstract{%
+    Everyone who has written a conference paper as part of a team knows the challenges of integrating it all together while following the conference template appropriately.
+    Axiomatic Design indicates that the design of a suitable process requires it to be modular and robust, which are not the case with the commonly used solution of WYSIWYG word processors such as Microsoft Word.
+    In this paper, we compare an alternative system called LaTeX in the context of modularity and robustness in comparison to Microsoft Word due to the structure of document creation.
+    LaTeX gives the option to break a document into separate pieces including at-compile figures, tables, and additional material.
+    LaTeX is also a more robust data format as is proven by selectively corrupting a set of input files until they no longer compile.
+    Through the lens of Axiomatic Design, markup languages such as LaTeX are much more robust and modular than current WYSIWYG document editors used in the conference paper development. 
+}
+%
+\maketitle
+%
+\section*{README!}\label{sec:readme}
+\textbf{Template Author's Notes (2019--02--11):}
+  This version of the template has descriptive sections and examples for an Axiomatic Design/Product Design paper.
+  If you are looking for the original MATEC LaTeX template, it can be found in \path{woc_2col.tex}.
+  The original template has a lot of detailed instructions on formatting the paper, but most of that is already taken care of if you are using LaTeX.
+
+  This template takes care of formatting and placement of the citations, as long as you fill in the BibTeX file \path{references.bib} and \path{references-ad.bib} correctly.
+  If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file.
+
+        If you have \path{woc.bst} it will ensure that the citations meet the formatting required by MATEC Web of Science with some modifications needed for the International Conference on Axiomatic Design.
+        If you need the old citation format, just copy \path{woc-orig.bst} over the \path{woc.bst}.
+        Enjoy!
+
+
+\listoffixmes{}
+
+\section*{\LaTeX{} Hints}
+\begin{itemize}
+\item Put one sentence per line.
+  This makes it easier to debug errors (which are by line) and to do grammar checking with \url{http://grammarly.com}.
+\item Compile the document often and look for errors.
+  If you find one, try commenting out the area to locate the source of the problem.
+\item Watch out for \& and \%.  They have to have a left-slash in front of them.
+\end{itemize}
+
+\section{Introduction}
+\jfnote{Don't forget to write the introduction.}
+\jfwarning{Really, don't forget to write the introduction.}
+What is the idea?  What is it called and why?
+Who is the target customer?
+
+\subsection{Customer Needs}
+What would a customer need the item to do?  
+Using Axiomatic Design theory, this is stated as a numbered list of Customer Needs(CN)~\cite{suh1990principles}.
+The top level is \CN0.
+This is often (but not always) decomposed into \CN1, \CN2, etc.
+Here is an example of a top level:
+
+\begin{quote} \textbf{\CN0} A transfer bin for whole salmon, compatible with the SureTrack grader, cheaper and less prone to cracking due to skewing.  
+The bin should be adaptable to a pure transfer task and be able to discharge anywhere along its path without
+accidental discharge.~\cite{gerhard2016suretrack}
+\end{quote}
+
+
+\section{Prior Art}
+What exists that is similar?  How is yours better/distinctive?
+Give at least two examples and quantify the differences (numeric values).
+If you say something is cheaper, you need to give the costs for both items.
+
+An example of a figure is the grey square in Fig.~\ref{fig:grey-square}.
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{grey-square}
+  \caption{Grey square.}\label{fig:grey-square}
+\end{figure}
+
+
+
+\subsection*{Sources}
+You will want to cite all these similar concepts/products.
+As an example of a citation, Carryer et al.~\cite{carryer2011IntroMechatronics} is the textbook for T-411-MECH Mechatronics 1.
+
+
+\section{Design}
+As previously mentioned, using Axiomatic Design Theory is a good way to develop your design.
+
+Here is a brief synopsis from Omarsdóttir et al.\cite{omarsdottir2016chessmate}:
+\begin{quotation}
+  Rather, the focus was placed on developing comprehensive FR and DP lists, then evaluating the coupling between them.
+  This coupling is symbolized in a design matrix, which is a Cartesian product of all FR and DP combinations~\cite{cochran2016msdd, benevides2012aed}.
+Where there is an interaction between an FR and DP, this is denoted by a non-zero coefficient, or in the case of the value being unknown, simply a placeholder variable $X$.
+Minor levels of coupling, often considered higher-order effects, are annotated with $x$ to show their lessened effect.
+A diagonal matrix is ``uncoupled'' and satisfies the Independence Axiom: ``to maintain the independence of the functional requirements~(FRs)''~\cite{suh2001axiomatic}.
+Such a design can be easily optimized by adjusting a particular FR or DPs without affecting others.
+A diagonal matrix indicates a ``decoupled'' or ``path-dependent'' solution, which can still be optimized, but the ordering of parameter choice selection becomes important.
+All other design matrices are ``coupled'' and may have a usable local solution but usually resist modification and optimization~\cite{suh2001axiomatic}.
+Needless to say, the focus is on minimizing coupling wherever it may appear.
+
+ADT's second axiom is ``minimize the information content of the design.''
+Simply put, ensure that the design has the highest probability of meeting the stated FRs.
+When systems are not able to meet FRs all of the time, this is denoted in ADT as ``complexity'' and is deeply explored in~\cite{suh2005complexity}.
+As will become apparent in the next section, this axiom became integral to the design of the interaction between the robot and its chess pieces.
+Finally, any factors to be considered that are not functional are categorized as ``Constraints.''
+These are often resource-focused and affect all of the design decisions; they need to be revisited often especially when choosing between otherwise equivalent implementations.
+\end{quotation}
+The first axiom is often called the Independence Axiom, and the second, the Information Axiom.
+
+
+From the Customer Needs, we build a list of Functional Requirements.
+
+Again, we start with a top-level \FR0: ``Contain \SI{25}{\kilogram} of fish on SureTrack conveyor until release is triggered''
+From this, a top-level Design Parameter \DP0: Gable-reinforced stainless-steel locking bin with bi-directional discharge
+\cite{gerhard2016suretrack}.
+
+We continue a ``zig-zag'' procedure to decompose and map the FRs to the DPs as shown in Table~\ref{tab:first_level-frdp}.
+
+\begin{table}
+  \center
+  \caption{First level FR-DP mapping.~\cite{gerhard2016suretrack}}\label{tab:first_level-frdp}
+  \begin{tabular}{lll} \toprule
+    ID& Functional Requirement & Design Parameter \\ \midrule 
+    1&Contain product&Main weldment\\
+    2&Move product&Support system\\
+    3&Discharge product &Discharge system\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+From this mapping we develop a design matrix as shown in Equation~\ref{eq:top-design-matrix} from~\cite{gerhard2016suretrack}.
+
+\begin{equation}\label{eq:top-design-matrix}
+\begin{Bmatrix}
+\FR{1}\\
+\FR{2}\\
+\FR{3}
+\end{Bmatrix}=
+\begin{bmatrix}
+X &  0 & X\\
+0 &  X & 0\\
+0 &  0 & X
+\end{bmatrix}
+\begin{Bmatrix}
+\DP{1}\\
+\DP{2}\\
+\DP{3}
+\end{Bmatrix}
+\end{equation}
+
+This matrix is de-coupled i.e.\ path-dependent, meaning it can be optimized, but the order matters.
+
+\section{Experiments}
+
+\section{Results and Discussion}
+
+\section{Conclusion}
+
+\subsection{Future work}
+
+\subsection{Summary}
+
+%\bibliography{references}
+\bibliography{references-ad}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%% TeXStudio Magic Comments %%%%%%%%%%%%%%%%%%%%%
+%% These comments that start with "!TeX" modify the way TeXStudio works
+%% For details see http://texstudio.sourceforge.net/manual/current/usermanual_en.html   Section 4.10
+%%
+%% What encoding is the file in?
+% !TeX encoding = UTF-8
+%% What language should it be spellchecked?
+% !TeX spellcheck = en_US
+%% What program should I compile this document with?
+% !TeX program = pdflatex
+%% Which program should be used for generating the bibliography?
+% !TeX TXS-program:bibliography = txs:///bibtex
+%% This also sets the bibliography program for TeXShop and TeXWorks
+% !BIB program = bibtex
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+

@@ -1,0 +1,112 @@
+%% custom.sty
+%% Put your local macros and shortcuts here so that it's easy to reuse in
+%% many documents.
+%% AMS is American Mathematics Society.  They have a bunch of nice
+%% math fonts and symbols
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+%% Advanced matrix formating
+\RequirePackage{array}
+
+%% Helpful math tools
+\RequirePackage{mathtools}
+
+%% Some symbols that don't exist in all fonts
+\RequirePackage{textcomp}
+
+%% Units formatting according to SI rules
+\RequirePackage{siunitx} 
+
+% another verbatim environment
+\RequirePackage{examplep} 
+
+\PassOptionsToPackage{final}{listings}
+\RequirePackage{listings} % force final or included files are skipped, invisibly!
+% This allows you to include code easily
+% \begin{lstlisting}[language=bash]
+%  $ wget http://blah
+% \end{lstlisting}
+% or for simpler snippets
+%  \lstinline^cp -rp foo bar^
+%  You can replace ^ with any character not in your code
+\lstset{%
+        language=, %default similar to verbatim
+        basicstyle=\footnotesize\ttfamily,%
+        frame=lines,%
+        breaklines=true,%
+        postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}, % red arrow
+        % from http://tex.stackexchange.com/questions/116534/lstlisting-line-wrapping
+}
+% Here are listings macros I use a lot
+\newcommand{\fpath}{\lstinline}  % magic, do not try to give it arguments
+\newcommand{\shcmd}{\lstinline}  
+% ex:  \fpath{\\AFS\.rnd.ru.is\course\T-411-MECH}
+
+%% Nice package for making sub figures inside of a figure.  Keeps all
+%% the reference labels correct and makes "sub captions"
+% % WARNING: this is completely different than the subfigure package
+\RequirePackage{subfig}
+
+% FIXME system for making notes to each other for what needs to 
+% be completed in a group document.
+\RequirePackage[layout=inline]{fixme}
+
+% internal layouts: inline, margin, footnote, index, marginclue
+% % Warning! The pdf external layouts do not play well with hyperref
+% % and must be loaded by doing \fxuselayouts{}
+% external layouts: marginnote, pdfnote, pdfmargin, pdfsignote, pdfsigmargin
+%     pdfcnote, pdfcmargin, pdfcsignote, pdfcsigmargin
+%  pdfc stands for pdf color
+%\fxuselayouts{pdfcmargin}
+
+% Pass options for hyperlinks (which must be just before \begin{document}
+%   final: always put hyperlinks
+%   hidelinks: don't change color or text on hyperlink
+\PassOptionsToPackage{final,hidelinks}{hyperref}
+
+%% Commonly used notation/abbrevs, converted into latex commands:
+\renewcommand{\d}[1]{\;\textsf{d}#1}
+\newcommand{\pd}[1]{\partial #1}
+\newcommand{\D}{\;\textsf{D}}
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+
+%% Extremely common abbreviations using the siunitx package
+\newcommand{\SIkg}[1]{\SI{#1}{\kilo\gram}}
+\newcommand{\SIma}[1]{\SI{#1}{\milli\ampere}}
+\newcommand{\SIA}[1]{SI{#1}{\ampere\xspace}}
+
+%% Math nototation
+\newcommand{\realset}{\ensuremath{\mathbb{R}}}
+\newcommand{\intset}{\ensuremath{\mathbb{Z}}}
+\newcommand{\ratset}{\ensuremath{\mathbb{Q}}}
+
+%% Axiomatic Design formulas
+%% Typeset the Axiomatic symbols properly
+\newcommand\CN[1]{\ensuremath{\text{CN}_{#1}}}
+\newcommand\CA[1]{\ensuremath{\text{CA}_{#1}}}
+\newcommand\FR[1]{\ensuremath{\text{FR}_{#1}}}
+\newcommand\DP[1]{\ensuremath{\text{DP}_{#1}}}
+\newcommand\PV[1]{\ensuremath{\text{PV}_{#1}}}
+\newcommand\C[1]{\ensuremath{\text{C}_{#1}}}
+
+
+%% Common way to make a centered picture that
+%% has a caption, label, and is centered 
+\newcommand{\cfigure}[2]{\begin{figure}[h]
+\centering %
+\includegraphics{#1}%
+\caption{#2\label{fig:#1}}%
+\end{figure}%
+}
+\newcommand{\cfiguresize}[3]{\begin{figure}[h]
+\centering %
+\includegraphics[#3]{#1}%
+\caption{#2\label{fig:#1}}%
+\end{figure}%
+}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
