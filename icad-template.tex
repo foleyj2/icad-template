@@ -1,22 +1,47 @@
-%%%%%%%%%%%%%%%%%%%%%%% file icad-template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
-% $Id: icad-template.tex 196 2020-03-20 12:09:24Z foley $
-% $URL: https://repository.cs.ru.is/svn/template/tvd/journal/journal-of-physics/icad-template.tex $
-% 
-% This is a template file for Journal of Physics Conference Series
-%   which is used for the International Conference of Axiomatic Design as of 2020
-%
-%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[a4paper]{jpconf}
-%% Allow Icelandic characters
+%%%%%%%%%%%%%%%%%%%%%%% file icad-template.tex %%%%%%%%%%%%%%%%%%%%%%
+%% This is a template file for Springer Nature which is used for   %%
+%% the International Conference of Axiomatic Design as of 2022     %%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%% See sn-article for many more options to this template           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\documentclass[sn-mathphys,pdflatex]{sn-jnl}% Math and Physical Sciences Reference Style
+
+\jyear{2022}%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+%%Allow Icelandic characters
 \usepackage[icelandic,english]{babel}
 \usepackage[T1]{fontenc}
 
+%% Setup graphics and paths
+\usepackage{custom}
 \usepackage{graphicx}
 \graphicspath{{./}{Graphics/}}
 
-\bibliographystyle{iopart-num}
-%\usepackage{citesort}
-
+%% packages to make tables look nicer
 \usepackage{booktabs}
 \usepackage{array} %% needed for advanced table manipulation
 %% Column types from http://tex.stackexchange.com/questions/54069/table-with-text-wrapping
@@ -24,59 +49,77 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\usepackage{custom}
 \usepackage{url}%%URL should also be the last package loaded along with hyperref if needed
+
 \begin{document}
-\title{International Conference of Axiomatic Design 2020+ Template: \jpcs}
+\title[ICAD2022+ Template]{International Conference of Axiomatic Design 2022+ Template}
 
-\author{J T Foley$^{1,2}$, M J P S Cavique$^{3}$, A J F Mourão$^{4}$, J M Fradinho$^{4}$}
+%%=============================================================%%
+%% Prefix       -> \pfx{Dr}
+%% GivenName    -> \fnm{Joergen W.}
+%% Particle     -> \spfx{van der} -> surname prefix
+%% FamilyName   -> \sur{Ploeg}
+%% Suffix       -> \sfx{IV}
+%% NatureName   -> \tanm{Poet Laureate} -> Title after name
+%% Degrees      -> \dgr{MSc, PhD}
+%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate} 
+%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
+%%=============================================================%%
 
-\address{$^{1}$Reykjavik University, Menntavegur 1, Reykjavik 102, Iceland}
-\address{$^{2}$Massachusetts Institute of Technology, 77 Massachusetts Ave, Cambridge MA 02139, USA}
-\address{$^{3}$Naval Academy (PT), Department of Sciences and Technology, Base Naval --- Alfeite, Almada, 2810-001, Portugal}
-\address{$^{4}$Faculdade de Ci\^{e}ncias e Technologia, Universidade Nova De Lisboa, 2829-516 Caparica, Portugal}
-\ead{foley AT ru.is}
 
-\begin{abstract}
-  All articles {\it must} contain an abstract.
-This document describes the preparation of a conference paper to be published in \jpcs\ using \LaTeXe\ and the \cls\ class file.
-The abstract follows the addresses and should give readers concise information about the content of the article and indicate the main results obtained and conclusions drawn.
-As the abstract is not part of the text it should be complete in itself; no table numbers, figure numbers, references or displayed mathematical expressions should be included.
-It should be suitable for direct inclusion in abstracting services and should not normally exceed 200 words.
-The abstract should generally be restricted to a single paragraph.
-Since contemporary information-retrieval systems rely heavily on the content of titles and abstracts to identify relevant articles in literature searches, great care should be taken in constructing both.
-\end{abstract}
+\author*[1,2]{\fnm{Joseph T.} \sur{Foley}}\email{foley AT ru.is}
+\author[3]{\fnm{Erik} \sur{Puik}}
+\author[4]{\fnm{Petra} \sur{Foith-Förster}}
+\author[5]{\fnm{David S.} \sur{Cochran}}
 
-\section*{Important Information}
-This ICAD template is a customized version from the one provided by Jacky Mucklow \texttt{jacky.mucklow@iop.org} for \jpcs.
-The original template and more information can be found at \url{https://publishingsupport.iopscience.iop.org/author-guidelines-for-conference-proceedings/}
+\affil*[1]{\orgdiv{Department of Engineering}, \orgname{Reykjavik University}, \orgaddress{\street{Mennavegure 1}, \city{Reykjavík}, \postcode{102}, \country{Iceland}}}
+\affil[2]{\orgdiv{Department of Mechanical Engineering}, \orgname{Massachusetts Institute of Technology}, \orgaddress{\street{77 Massachusetts Ave}, \city{Cambridge}, \postcode{02139}, \state{Massachusetts}, \country{USA}}}
+\affil[2]{\orgname{Eindhoven University of Technology}, \orgaddress{\street{5612 AZ}, \city{Eindhoven}, \country{Netherlands}}}
+\affil[2]{\orgdiv{Research Department}, \orgname{Bosch}, \orgaddress{\street{Robert-Bosch-Platz 1}, \city{Gerlingen}, \postcode{70839}, \country{Germany}}}
+\affil[2]{\orgdiv{Department of Electrical Engineering}, \orgname{Purdue University Fort Wayne}, \orgaddress{\street{2101 East Coliseum Boulevard}, \city{Foprt Wayne}, \postcode{46805}, \state{Indiana}, \country{USA}}}
 
-IOP Publishing is to grateful Mark A Caprio, Center for Theoretical Physics, Yale University, for permission to include the {\tt iopart-num} \BibTeX package (version 2.0, December 21, 2006) with  this documentation. Updates and new releases of {\tt iopart-num} can be found on \verb"www.ctan.org" (CTAN). 
+\abstract{All articles {\it must} contain an abstract.
+The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications.
+Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.
+Abtracts are often presented separately from the article, so they must stand on their own (no citations nor figure references).}
 
-\textbf{Template Author's Notes (2019--02--11):}
-  This version of the template has descriptive sections and examples for an Axiomatic Design/Product Design paper.
-  If you are looking for the original MATEC LaTeX template, it can be found in \path{Instructions/JPSCLaTeXGuidelines.tex}; a PDF of the same name can be found with this file.
-  The original template has a lot of detailed instructions on formatting the paper, but most of that is already taken care of if you are using LaTeX.
+\keywords{keyword1, Keyword2, Keyword3, Keyword4}
+
+\maketitle
+
+\subsection*{Important Information}\label{sec:important-info}
+This ICAD template is a customized version used in the SpringerNature book series ``Lecture Notes in Networks and Systems'' distributed at \url{https://www.springer.com/series/15179}.
+The original SpringerNature \LaTeX{} template can be found at \url{https://www.springernature.com/gp/authors/campaigns/latex-author-support}
+You will want to remove or comment out these sections before you begin adding your content.
+Please read the \path{user-manual.pdf} before you begin writing your article:  it will save you a lot of hassle later.
+If you want more detailed explanation of how to write things in the SpringerNature style, examine the \path{sn-article.tex}
+
 
   This template takes care of formatting and placement of the citations, as long as you fill in the BibTeX file \path{references.bib} and \path{references-ad.bib} correctly.
-  If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file.
+  If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file;  you can see examples of this near the end of \path{references-ad.bib}
 
-\subsection*{\LaTeX{} Hints}
+\subsection*{\LaTeX{} Hints}\label{sec:latex-hints}
 \begin{itemize}
 \item Put one sentence per line.
   This makes it easier to debug errors (which are by line) and to do grammar checking with \url{http://grammarly.com}.
 \item Compile the document often and look for errors.
   If you find one, try commenting out the area to locate the source of the problem.
 \item Watch out for \& and \%.  They have to have a left-slash in front of them.
-\item Underscore ``\verb|_|''is only usable in math as a subscript.
+\item Underscore ``\verb|_|'' is only usable in math as a subscript.
   Don't put it in normal text.
 \end{itemize}
 
-\section{Introduction}
+
+\section{Introduction}\label{sec:introduction}
+The Introduction section expands on the background of the work (some overlap with the Abstract is acceptable).
+The introduction should not include subheadings.
+
 What is the idea?  What is it called and why?
 Who is the target customer?
 
-\subsection{Customer Needs}
+
+
+\subsection{Customer Needs}\label{sec:customer-needs}
 What would a customer need the item to do?  
 Using Axiomatic Design theory, this is stated as a numbered list of Customer Needs(CN)~\cite{suh1990principles}.
 The top level is \CN0.
@@ -89,26 +132,26 @@ accidental discharge.~\cite{gerhard2016suretrack}
 \end{quote}
 
 
-\section{Prior Art}
+\section{Prior Art}\label{sec:prior-art}
 What exists that is similar?  How is yours better/distinctive?
 Give at least two examples and quantify the differences (numeric values).
 If you say something is cheaper, you need to give the costs for both items.
 
-An example of a figure is the grey square in Fig.~\ref{fig:grey-square}.
+An example of a figure is the four Axiomatic Design domains in Fig.~\ref{fig:ad-domains}.
 \begin{figure}
   \centering
-  \includegraphics[width=\columnwidth]{grey-square}
-  \caption{Grey square.}\label{fig:grey-square}
+  \includegraphics[width=0.9\columnwidth]{ad-domains-zig}
+  \caption{General progression between the Axiomatic Design domains employing the zig-zag approach}\label{fig:ad-domains}
 \end{figure}
 
 
 
-\subsection*{Sources}
+\subsection{Sources}\label{sec:sources}
 You will want to cite all these similar concepts/products.
 As an example of a citation, Carryer et al.~\cite{carryer2011IntroMechatronics} is the textbook for T-411-MECH Mechatronics 1.
 
 
-\section{Design}
+\section{Design}\label{sec:design}
 As previously mentioned, using Axiomatic Design Theory is a good way to develop your design.
 
 Here is a brief synopsis from Omarsdóttir et al.\cite{omarsdottir2016chessmate}:
@@ -175,18 +218,20 @@ X &  0 & X\\
 
 This matrix is de-coupled i.e.\ path-dependent, meaning it can be optimized, but the order matters.
 
-\section{Experiments}
+\section{Experiments}\label{sec:experiments}
 
-\section{Results and Discussion}
+\section{Results and Discussion}\label{sec:results-discussion}
 
-\section{Conclusion}
+\section{Conclusion}\label{sec:conclusion}
 
-\subsection{Future work}
+\subsection{Future work}\label{sec:future-work}
 
-\subsection{Summary}
+\subsection{Summary}\label{sec:summary}
 
-\section*{References}
-\bibliography{iopart-num-demo,references,references-ad}
+\section*{References}\label{sec:references}
+%\bibliographystyle{sn-mathphys}%%NOT NEEDED:Class file sets the style
+\bibliography{references,references-ad}
+
 
 \end{document}
 
