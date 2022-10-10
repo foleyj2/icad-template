@@ -1,8 +1,16 @@
-%%%%%%%%%%%%%%%%%%%%%%% file icad-template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
-% This is a template file for Springer Nature
-%   which is used for the International Conference of Axiomatic Design as of 2022
-%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[sn-mathphys]{sn-jnl}% Math and Physical Sciences Reference Style
+%%%%%%%%%%%%%%%%%%%%%%% file icad-template.tex %%%%%%%%%%%%%%%%%%%%%%
+%% This is a template file for Springer Nature which is used for   %%
+%% the International Conference of Axiomatic Design as of 2022     %%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%% See sn-article for many more options to this template           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\documentclass[sn-mathphys,pdflatex]{sn-jnl}% Math and Physical Sciences Reference Style
 
 \jyear{2022}%
 
@@ -83,13 +91,12 @@ Abtracts are often presented separately from the article, so they must stand on 
 This ICAD template is a customized version used in the SpringerNature book series ``Lecture Notes in Networks and Systems'' distributed at \url{https://www.springer.com/series/15179}.
 The original SpringerNature \LaTeX{} template can be found at \url{https://www.springernature.com/gp/authors/campaigns/latex-author-support}
 You will want to remove or comment out these sections before you begin adding your content.
+Please read the \path{user-manual.pdf} before you begin writing your article:  it will save you a lot of hassle later.
+If you want more detailed explanation of how to write things in the SpringerNature style, examine the \path{sn-article.tex}
 
-\textbf{Template Author's Notes (2019--02--11):}
-  This version of the template has descriptive sections and examples for an Axiomatic Design/Product Design paper.
-  The original template has a lot of detailed instructions on formatting the paper, but most of that is already taken care of if you are using LaTeX.
 
   This template takes care of formatting and placement of the citations, as long as you fill in the BibTeX file \path{references.bib} and \path{references-ad.bib} correctly.
-  If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file.
+  If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file;  you can see examples of this near the end of \path{references-ad.bib}
 
 \subsection*{\LaTeX{} Hints}\label{sec:latex-hints}
 \begin{itemize}
@@ -222,7 +229,7 @@ This matrix is de-coupled i.e.\ path-dependent, meaning it can be optimized, but
 \subsection{Summary}\label{sec:summary}
 
 \section*{References}\label{sec:references}
-%\bibliographystyle{sn-mathphys}
+%\bibliographystyle{sn-mathphys}%%NOT NEEDED:Class file sets the style
 \bibliography{references,references-ad}
 
 
