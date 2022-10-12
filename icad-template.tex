@@ -94,6 +94,8 @@ You will want to remove or comment out these sections before you begin adding yo
 Please read the \path{user-manual.pdf} before you begin writing your article:  it will save you a lot of hassle later.
 If you want more detailed explanation of how to write things in the SpringerNature style, examine the \path{sn-article.tex}
 
+\textbf{Important warning:  When using the SpringerNature's citation style called \path{sn-mathphys}, books {\em must\/} have an address field or you will get ``???'' showing up in the citation.
+  Due to a bug in the current 2011 \path{sn-mathphys.bst} file, it won't give you an error or warning.}
 
   This template takes care of formatting and placement of the citations, as long as you fill in the BibTeX file \path{references.bib} and \path{references-ad.bib} correctly.
   If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file;  you can see examples of this near the end of \path{references-ad.bib}
@@ -218,9 +220,9 @@ X &  0 & X\\
 
 This matrix is de-coupled i.e.\ path-dependent, meaning it can be optimized, but the order matters.
 
-\section{Experiments}\label{sec:experiments}
+\section{Results/Experiments/Prototypes}\label{sec:rep}
 
-\section{Results and Discussion}\label{sec:results-discussion}
+\section{Discussion}\label{sec:results-discussion}
 
 \section{Conclusion}\label{sec:conclusion}
 
