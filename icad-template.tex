@@ -100,8 +100,13 @@ If you want more detailed explanation of how to write things in the SpringerNatu
   This template takes care of formatting and placement of the citations, as long as you fill in the BibTeX file \path{references.bib} and \path{references-ad.bib} correctly.
   If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file;  you can see examples of this near the end of \path{references-ad.bib}
 
+  SpringerNature's submission system wants everything to be in the same directory.
+  This means that you need to put the graphics and supplementary material in the directory with the main \verb|.tex| file or it will put blank spots where they would go.
+  Joe recommends keeping everything in the Graphics folder until just before submission to keep everything clean or writing a script to flatten the directory structure when making your \verb|.zip| upload.
+  
 \subsection*{\LaTeX{} Hints}\label{sec:latex-hints}
 \begin{itemize}
+\item Rename this file to something unique with the year and topic like: \path{icad2022-sharklasers.tex} so you can find it more easily.
 \item Put one sentence per line.
   This makes it easier to debug errors (which are by line) and to do grammar checking with \url{http://grammarly.com}.
 \item Compile the document often and look for errors.
