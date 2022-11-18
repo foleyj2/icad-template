@@ -1,0 +1,17 @@
+~*
+#*#
+*~
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.lox
+*.out
+*.run.xml
+*.synctex.gz
+auto/
+*template*.pdf
+*-review.pdf
+*-review.txt
+test*.pdf
