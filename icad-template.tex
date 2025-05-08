@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%% file icad-template.tex %%%%%%%%%%%%%%%%%%%%%%
-%% This is a template file for Springer Nature which is used for   %%
-%% the International Conference of Axiomatic Design as of 2022     %%
+%% This is a template file for Springer Proceedings for            %%
+%% the International Conference of Axiomatic Design as of 2025     %%
 %%                                                                 %%
 %% Please do not use \input{...} to include other tex files.       %%
 %% Submit your LaTeX manuscript as one .tex document.              %%
@@ -8,38 +8,18 @@
 %% All additional figures and files should be attached             %%
 %% separately and not embedded in the \TeX\ document itself.       %%
 %%                                                                 %%
-%% See sn-article for many more options to this template           %%
+%% See svproc for many more options to this template               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\documentclass[sn-mathphys,pdflatex]{sn-jnl}% Math and Physical Sciences Reference Style
+\documentclass{svproc}
 
-\jyear{2022}%
-
-%% as per the requirement new theorem styles can be included as shown below
-\theoremstyle{thmstyleone}%
-\newtheorem{theorem}{Theorem}%  meant for continuous numbers
-%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
-%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
-\newtheorem{proposition}[theorem]{Proposition}% 
-%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
-
-\theoremstyle{thmstyletwo}%
-\newtheorem{example}{Example}%
-\newtheorem{remark}{Remark}%
-
-\theoremstyle{thmstylethree}%
-\newtheorem{definition}{Definition}%
-
-\raggedbottom
-%%\unnumbered% uncomment this for unnumbered level heads
 
 %%Allow Icelandic characters
 \usepackage[icelandic,english]{babel}
 \usepackage[T1]{fontenc}
 
-%% Setup graphics and paths
+
 \usepackage{custom}
-\usepackage{graphicx}
-\graphicspath{{./}{Graphics/}}
+%\graphicspath{{./}{Graphics/}}%% package graphicx loaded in svproc.cls
 
 %% packages to make tables look nicer
 \usepackage{booktabs}
@@ -49,64 +29,61 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\usepackage{url}%%URL should also be the last package loaded along with hyperref if needed
+% to typeset URLs, URIs, and DOIs
+\usepackage{xurl}%% This should usually be the last package loaded
+\def\UrlFont{\rmfamily}
 
 \begin{document}
-\title[ICAD2022+ Template]{International Conference of Axiomatic Design 2022+ Template}
+\title{International Conference of Axiomatic Design 2025+ Template}
 
-%%=============================================================%%
-%% Prefix       -> \pfx{Dr}
-%% GivenName    -> \fnm{Joergen W.}
-%% Particle     -> \spfx{van der} -> surname prefix
-%% FamilyName   -> \sur{Ploeg}
-%% Suffix       -> \sfx{IV}
-%% NatureName   -> \tanm{Poet Laureate} -> Title after name
-%% Degrees      -> \dgr{MSc, PhD}
-%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate} 
-%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
-%%=============================================================%%
+\titlerunning{ICAD2025+ Template}% abbreviated title (for running
+% head) also used for the TOC unless \toctitle is used
+
+\author{Joseph Timothy Foley\inst{1,2} \and Clarice Bleil De Souza\inst{3}
+  \and Marianna Marchesi\inst{3} \and Camilla Pezzica\inst{3}}
+%% The Word template has ORCID right after the affiliation and the email at the end --foley
+\authorrunning{Foley \& De Souza et al.}% abbreviated author list (for running head)
+\tocauthor{Joseph T. Foley, Clarice Bleil De Souza, Marianna MArchesi, and Camilla Pezzica}
+%%%% list of authors for the TOC
+% (use if author list has to be modified)
+\institute{Department of Engineering, Reykjavík University, Menntavegur 1, Reykjavík 102, Iceland,
+  %\\ WWW home page:\texttt{http://www.ru.is/staff/foley} %%No URL in Word Template
+  \and
+  Department of Mechanical Engineering, Massachusetts Institute of Technology, 77 Massachusetts Avenue,Cambridge, Massachusetts 02139, USA
+  \and
+  Welsh School of Architecture, Cardiff University, Bute Building, King Edward VII Avenue, Cardiff, CF10 3NB, UK\\
+\email{foley AT ru.is},}
 
 
-\author*[1,2]{\fnm{Joseph T.} \sur{Foley}}\email{foley AT ru.is}
-\author[3]{\fnm{Erik} \sur{Puik}}
-\author[4]{\fnm{Petra} \sur{Foith-Förster}}
-\author[5]{\fnm{David S.} \sur{Cochran}}
+\maketitle              % typeset the title of the contribution
 
-\affil*[1]{\orgdiv{Department of Engineering}, \orgname{Reykjavik University}, \orgaddress{\street{Mennavegure 1}, \city{Reykjavík}, \postcode{102}, \country{Iceland}}}
-\affil[2]{\orgdiv{Department of Mechanical Engineering}, \orgname{Massachusetts Institute of Technology}, \orgaddress{\street{77 Massachusetts Ave}, \city{Cambridge}, \postcode{02139}, \state{Massachusetts}, \country{USA}}}
-\affil[2]{\orgname{Eindhoven University of Technology}, \orgaddress{\street{5612 AZ}, \city{Eindhoven}, \country{Netherlands}}}
-\affil[2]{\orgdiv{Research Department}, \orgname{Bosch}, \orgaddress{\street{Robert-Bosch-Platz 1}, \city{Gerlingen}, \postcode{70839}, \country{Germany}}}
-\affil[2]{\orgdiv{Department of Electrical Engineering}, \orgname{Purdue University Fort Wayne}, \orgaddress{\street{2101 East Coliseum Boulevard}, \city{Foprt Wayne}, \postcode{46805}, \state{Indiana}, \country{USA}}}
+\begin{abstract}
+The abstract should summarize the contents of the paper
+using at least 70 and at most 150 words. It will be set in 9-point
+font size and be inset 1.0 cm from the right and left margins.
+There will be two blank lines before and after the Abstract. \dots
+% We would like to encourage you to list your keywords within
+% the abstract section using the \keywords{...} command.
+\keywords{Axiomatic Design, LaTeX Template, Demonstration}
+\end{abstract}
 
-\abstract{All articles {\it must} contain an abstract.
-The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications.
-Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.
-Abtracts are often presented separately from the article, so they must stand on their own (no citations nor figure references).}
-
-\keywords{keyword1, Keyword2, Keyword3, Keyword4}
-
-\maketitle
-
-\subsection*{Important Information}\label{sec:important-info}
-This ICAD template is a customized version used in the SpringerNature book series ``Lecture Notes in Networks and Systems'' distributed at \url{https://www.springer.com/series/15179}.
-The original SpringerNature \LaTeX{} template can be found at \url{https://www.springernature.com/gp/authors/campaigns/latex-author-support}
+\section*{Important Information}\label{sec:important-info}
+This ICAD template is a customized version used in the Springer Proceedings distributed at \url{https://www.springer.com/in/authors-editors/conference-proceedings/conference-proceedings-guidelines}.
+It is highly suggested that you download the zip file at \url{https://resource-cms.springernature.com/springer-cms/rest/v1/content/19338728/data/v1} and look at \path{authinst.pdf} before writing your article:  it will save you a lot of hassle later.
 You will want to remove or comment out these sections before you begin adding your content.
-Please read the \path{user-manual.pdf} before you begin writing your article:  it will save you a lot of hassle later.
-If you want more detailed explanation of how to write things in the SpringerNature style, examine the \path{sn-article.tex}
+Some changes have been made to be closer to the distributed Microsoft Word template at the same location.
 
-\textbf{Important warning:  When using the SpringerNature's citation style called \path{sn-mathphys}, books {\em must\/} have an address field or you will get ``???'' showing up in the citation.
-  Due to a bug in the current 2011 \path{sn-mathphys.bst} file, it won't give you an error or warning.}
-
-  This template takes care of formatting and placement of the citations, as long as you fill in the BibTeX file \path{references.bib} and \path{references-ad.bib} correctly.
+  This template takes care of formatting and placement of the citations, as long as you fill in the BibTeX file \path{references-ad.bib} correctly.
   If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file;  you can see examples of this near the end of \path{references-ad.bib}
 
-  SpringerNature's submission system wants everything to be in the same directory.
+  Springer's submission system wants everything to be in the same directory.
   This means that you need to put the graphics and supplementary material in the directory with the main \verb|.tex| file or it will put blank spots where they would go.
-  Joe recommends keeping everything in the Graphics folder until just before submission to keep everything clean or writing a script to flatten the directory structure when making your \verb|.zip| upload.
+  The first author recommends starting the figure names with FIG to make them easier to put into the submission \verb|.zip| upload.
+  They also want alt-text names for each of the figures which go into a separate Word file.
   
 \subsection*{\LaTeX{} Hints}\label{sec:latex-hints}
 \begin{itemize}
-\item Rename this file to something unique with the year and topic like: \path{icad2022-sharklasers.tex} so you can find it more easily.
+\item Rename this file to something unique with the year and topic like: \path{icad2025-sharklasers.tex} so you can find it more easily.
 \item Put one sentence per line.
   This makes it easier to debug errors (which are by line) and to do grammar checking with \url{http://grammarly.com}.
 \item Compile the document often and look for errors.
@@ -147,10 +124,9 @@ If you say something is cheaper, you need to give the costs for both items.
 An example of a figure is the four Axiomatic Design domains in Fig.~\ref{fig:ad-domains}.
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\columnwidth]{ad-domains-zig}
+  \includegraphics[width=0.9\columnwidth]{FIG-ad-domains-zig}
   \caption{General progression between the Axiomatic Design domains employing the zig-zag approach}\label{fig:ad-domains}
 \end{figure}
-
 
 
 \subsection{Sources}\label{sec:sources}
@@ -164,7 +140,7 @@ As previously mentioned, using Axiomatic Design Theory is a good way to develop 
 Here is a brief synopsis from Omarsdóttir et al.\cite{omarsdottir2016chessmate}:
 \begin{quotation}
   Rather, the focus was placed on developing comprehensive FR and DP lists, then evaluating the coupling between them.
-  This coupling is symbolized in a design matrix, which is a Cartesian product of all FR and DP combinations~\cite{cochran2016msdd, benevides2012aed}.
+  This coupling is symbolized in a design matrix, which is a Cartesian product of all FR and DP combinations~\cite{cochran2016msdd,benevides2012aed}.
 Where there is an interaction between an FR and DP, this is denoted by a non-zero coefficient, or in the case of the value being unknown, simply a placeholder variable $X$.
 Minor levels of coupling, often considered higher-order effects, are annotated with $x$ to show their lessened effect.
 A diagonal matrix is ``uncoupled'' and satisfies the Independence Axiom: ``to maintain the independence of the functional requirements~(FRs)''~\cite{suh2001axiomatic}.
@@ -235,10 +211,9 @@ This matrix is de-coupled i.e.\ path-dependent, meaning it can be optimized, but
 
 \subsection{Summary}\label{sec:summary}
 
-\section*{References}\label{sec:references}
-%\bibliographystyle{sn-mathphys}%%NOT NEEDED:Class file sets the style
-\bibliography{references,references-ad}
-
+%\section*{References}\label{sec:references}
+\bibliographystyle{bst/splncs03}
+\bibliography{references-ad}
 
 \end{document}
 
