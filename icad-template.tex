@@ -12,22 +12,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \documentclass{svproc}
 
-
 %%Allow Icelandic characters
 \usepackage[icelandic,english]{babel}
 \usepackage[T1]{fontenc}
 
+%% math fonts and symbols
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}%% Design Matrix formatting
 
+%% Package for doing math regarding lengths (need for \columnwidth)
+\usepackage{mathtools}
+
+%% Units formatting according to SI rules
+\usepackage{siunitx} 
+
+%% Makes sub captions inside for grouped figures.  Keeps all
+%% the reference labels correct and makes "sub captions"
+\usepackage{subcaption}
+
+%% Put packages you reuse often into custom.sty to be loaded here
 \usepackage{custom}
-%\graphicspath{{./}{Graphics/}}%% package graphicx loaded in svproc.cls
 
 %% packages to make tables look nicer
 \usepackage{booktabs}
 \usepackage{array} %% needed for advanced table manipulation
-%% Column types from http://tex.stackexchange.com/questions/54069/table-with-text-wrapping
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 % to typeset URLs, URIs, and DOIs
 \usepackage{xurl}%% This should usually be the last package loaded
