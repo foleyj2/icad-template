@@ -49,9 +49,13 @@
 \titlerunning{ICAD2025+ Template}% abbreviated title (for running
 % head) also used for the TOC unless \toctitle is used
 
-\author{Joseph Timothy Foley\inst{1,2} \and Second Author\inst{3}
-\and Third Author\inst{3} \and Fourth Author\inst{3}}
-%% The Word template has ORCID right after the affiliation and the email at the end --foley
+\newcommand{\orcid}[1]{\ensuremath{^{[#1]}}}
+
+\author{Joseph Timothy Foley\inst{1,2}\orcid{0000-0003-2515-1799}
+  \and Second Author\inst{3}\orcid{0000-1111-2222-3333}
+  \and Third Author\inst{3}\orcid{1111-2222-3333-4444}
+  \and Fourth Author\inst{3}\orcid{2222-3333-4444-5555}}
+%% The WordTemplate has the email at the end --foley
 \authorrunning{Foley \& Author et al.}% abbreviated author list (for running head)
 \tocauthor{Joseph T. Foley, Second Author, Third Author, and Fourth Author}
 %%%% list of authors for the TOC
