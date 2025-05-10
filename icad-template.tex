@@ -39,11 +39,11 @@
 \titlerunning{ICAD2025+ Template}% abbreviated title (for running
 % head) also used for the TOC unless \toctitle is used
 
-\author{Joseph Timothy Foley\inst{1,2} \and Clarice Bleil De Souza\inst{3}
-  \and Marianna Marchesi\inst{3} \and Camilla Pezzica\inst{3}}
+\author{Joseph Timothy Foley\inst{1,2} \and Second Author\inst{3}
+\and Third Author\inst{3} \and Fourth Author\inst{3}}
 %% The Word template has ORCID right after the affiliation and the email at the end --foley
-\authorrunning{Foley \& De Souza et al.}% abbreviated author list (for running head)
-\tocauthor{Joseph T. Foley, Clarice Bleil De Souza, Marianna MArchesi, and Camilla Pezzica}
+\authorrunning{Foley \& Author et al.}% abbreviated author list (for running head)
+\tocauthor{Joseph T. Foley, Second Author, Third Author, and Fourth Author}
 %%%% list of authors for the TOC
 % (use if author list has to be modified)
 \institute{Department of Engineering, Reykjavík University, Menntavegur 1, Reykjavík 102, Iceland,
@@ -73,13 +73,22 @@ It is highly suggested that you download the zip file at \url{https://resource-c
 You will want to remove or comment out these sections before you begin adding your content.
 Some changes have been made to be closer to the distributed Microsoft Word template at the same location.
 
-  This template takes care of formatting and placement of the citations, as long as you fill in the BibTeX file \path{references-ad.bib} correctly.
-  If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file;  you can see examples of this near the end of \path{references-ad.bib}
+  This template takes care of formatting and placement of the citations, as long as you fill in the BibTeX file \path{references.bib} and \path{references-ad.bib} correctly.
+  Advanced: If you are using crossrefs (to fill in the conference proceeding information), they must go at the end of the \path{.bib} file;  you can see examples of this near the end of \path{references-ad.bib}
+  References are taken care of by bibtex and the \path|splncs03_unsrt.bst| file.
+  \begin{quotation}
+    For citations of references, we prefer the use of square brackets and consecutive numbers.
+    Citations using labels or the author/year convention are also acceptable.
+    The following bibliography provides a sample reference list with entries for journal articles~\cite{author2016first}, an LNCS chapter~\cite{author2016inproceedings}, a book~\cite{author1999book}, proceedings without editors~\cite{author2010inproceedingsnoed}, as well as a URL~\cite{lcnsXXXXmisc}. {\em Text from:~\cite{authorXXXXwordtemplate}}
+  \end{quotation} 
 
   Springer's submission system wants everything to be in the same directory.
   This means that you need to put the graphics and supplementary material in the directory with the main \verb|.tex| file or it will put blank spots where they would go.
-  The first author recommends starting the figure names with FIG to make them easier to put into the submission \verb|.zip| upload.
+  The first author recommends starting the figure names with FIG to make them easier to put into the submission \verb|.zip| upload without including spurious files.
   They also want alt-text names for each of the figures which go into a separate Word file.
+  ``Please try to avoid rasterized images for line-art diagrams and schemas. Whenever
+possible, use vector graphics instead''~\cite{authorXXXXwordtemplate}
+
   
 \subsection*{\LaTeX{} Hints}\label{sec:latex-hints}
 \begin{itemize}
@@ -212,8 +221,8 @@ This matrix is de-coupled i.e.\ path-dependent, meaning it can be optimized, but
 \subsection{Summary}\label{sec:summary}
 
 %\section*{References}\label{sec:references}
-\bibliographystyle{bst/splncs03}
-\bibliography{references-ad}
+\bibliographystyle{bst/splncs03_unsrt}
+\bibliography{references, references-ad}
 
 \end{document}
 
